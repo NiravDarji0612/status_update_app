@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  task_name: MyString
+  git_pr_link: MyString
+  hour: 1
+  status: one
+
+two:
+  task_name: MyString
+  git_pr_link: MyString
+  hour: 1
+  status: two

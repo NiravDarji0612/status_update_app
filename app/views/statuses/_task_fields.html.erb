@@ -1,0 +1,23 @@
+<div class="nested-fields">
+    <div class="row mt-4 mb-4">
+        <div class="col-6 ms-4">
+            <div class="form-outline">
+                <%= f.label :task_name,"Task name", class: "form-label" %>
+                <%= f.text_field :task_name, class: "form-control" %>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-outline">
+                <%= f.label :git_pr_link, "Git Pr", class: "form-label" %>
+                <%= f.text_field :git_pr_link, type:"url", class: "form-control" %>
+            </div>
+        </div>
+        <div class="col me-4">
+            <div class="form-outline">
+                <%= f.label :hour,class: "form-label" %>
+                <%= f.text_field :hour,type: "number",class: "form-control" %>
+            </div>
+        </div>
+    </div>
+    <%= link_to_remove_association "Delete", f %>
+ </div>
