@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Hello sir/mam,</p>
+    <p>Please find the Status for today</p>
+    <p>
+    Items done<br>
+    --------------------------
+    </p>
+    <div class="card-body">
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Task name</th>
+              <th scope="col">Git PR</th>
+              <th scope="col">Hour</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @status.tasks.each.with_index(1) do |task,index| %>
+            <tr>
+              <th scope="row"><%= index %></th>
+              <td><%= task.task_name %></td>
+              <td><%= link_to "Github PR", task.git_pr_link, target: '_blank' %></td>
+              <td><%= task.hour %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+  </div>
+  </body>
+</html>

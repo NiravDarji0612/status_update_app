@@ -1,1 +1,69 @@
-<h1>This is show page...</h1>
+<h1 class="text-center mt-2">Status details</h1>
+<div class="col-md-10 ">
+    <div class="row ">
+        <div class="col-xl-3 col-lg-6 text-center ms-3 mb-2">
+            <div class="card l-bg-blue-dark">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fa fa-tasks"></i></div>
+                       <div class="mb-4">
+                          <h5 class="card-title mb-0">Total task</h5>
+                        </div>
+                        <div class="row align-items-center mb-2 d-flex">
+                          <div class="col-8">
+                             <h3 class="d-flex align-items-center mb-0">
+                                <%= pluralize(@tasks.count, "task") %>
+                             </h3>
+                          </div>
+                      </div>
+                  </div>
+             </div>
+         </div>  
+        <div class="col-xl-3 col-lg-6 text-center">
+            <div class="card l-bg-blue-dark">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fa fa-clock" aria-hidden="true" ></i></div>
+                    <div class="mb-4">
+                        <h5 class="card-title mb-0">Total hour</h5>
+                    </div>
+                    <div class="row">
+                        <div class="col-10">
+                            <h3>
+                                <%= pluralize(@status.total_hours_count, "hour") %>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+          </div>
+      </div>  
+  </div>
+</div>
+<div class="container">
+    <div class="card text-center">
+        <div class="card-header">
+          <h4>Date : <%= @status.date.strftime("%d/%m/%Y") %></h4>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Task name</th>
+                    <th scope="col">Git PR</th>
+                    <th scope="col">Hour</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <% @tasks.each.with_index(1) do |task,index| %>
+                  <tr>
+                    <th scope="row"><%= index %></th>
+                    <td><%= task.task_name %></td>
+                    <td><%= link_to "Github PR", task.git_pr_link, target: '_blank' %></td>
+                    <td><%= task.hour %></td>
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+<%= render 'layouts/footer'%>

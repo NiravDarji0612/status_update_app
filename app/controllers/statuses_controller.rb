@@ -1,5 +1,11 @@
 class StatusesController < ApplicationController
   def index
+    @statuses = Status.paginate(page: params[:page], per_page: 2)
+  end
+
+  def show
+    @status = Status.find(params[:id])
+    @tasks = @status.tasks
   end
 
   def dashboard
@@ -13,10 +19,32 @@ class StatusesController < ApplicationController
   def create
     @status = Status.new(status_params)
     if @status.save
-      redirect_to status_path(@status)
+      StatusMailer.with(status: @status).new_status_email.deliver_later
+      flash[:success] = 'Email has been sent successfully..'
+      redirect_to @status
     else
       render 'new'
     end
+  end
+
+  def edit
+    @status = Status.find(params[:id])
+  end
+
+  def update
+    @status = Status.find(params[:id])
+    if @status.update(status_params)
+      flash[:success] = 'status has been updated successfully..'
+      redirect_to status_path
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @status = Status.find(params[:id])
+    @status.destroy
+    redirect_to statuses_path
   end
 
   private

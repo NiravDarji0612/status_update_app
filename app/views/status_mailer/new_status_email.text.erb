@@ -1,0 +1,11 @@
+Hello sir/mam,
+  Please find the Status for today.
+
+Items Done:
+----------------------------
+<% @status.tasks.each.with_index(1) do |task,index| %>
+  # <%= index %>
+  Task name :<%= task.task_name %>
+  Git PR :<%= link_to "Github PR", task.git_pr_link, target: '_blank' %>
+  hour :<%= task.hour -%>
+<% end %>

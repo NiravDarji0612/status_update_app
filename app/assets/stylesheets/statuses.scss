@@ -1,3 +1,69 @@
 // Place all the styles related to the statuses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    border: none;
+    position: relative;
+    margin-bottom: 30px;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,0.1), 0 0.9375rem 1.40625rem rgba(90,97,105,0.1), 0 0.25rem 0.53125rem rgba(90,97,105,0.12), 0 0.125rem 0.1875rem rgba(90,97,105,0.1);
+}
+.l-bg-blue-dark {
+    background: linear-gradient(to right, #373b44, #4286f4) !important;
+    color: #fff;
+}
+.l-bg-cyan {
+    background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+    color: #fff;
+}
+.card .card-statistic-3 .card-icon {
+    text-align: center;
+    line-height: 50px;
+    margin-left: 15px;
+    color: #000;
+    position: absolute;
+    right: -5px;
+    top: 20px;
+    opacity: 0.1;
+}
+.card .card-statistic-3 .card-icon-large .fa, .card .card-statistic-3 .card-icon-large .far, .card .card-statistic-3 .card-icon-large .fab, .card .card-statistic-3 .card-icon-large .fal {
+    font-size: 110px;
+    margin-right: 5px;
+    
+}
+/* pagination styling */
+.flickr_pagination {
+    text-align: center;
+    padding: 0.3em;
+    cursor: default; }
+    .flickr_pagination a, .flickr_pagination span, .flickr_pagination em {
+      padding: 0.2em 0.5em; 
+      border-radius: 5px;}
+    .flickr_pagination .disabled {
+      color: #aaaaaa; }
+    .flickr_pagination .current {
+      font-style: normal;
+      font-weight: bold;
+      color: rgb(97, 147, 241); }
+    .flickr_pagination a {
+      border: 1px solid rgb(97, 147, 241);
+      color: rgb(97, 147, 241);
+      text-decoration: none; }
+      .flickr_pagination a:hover, .flickr_pagination a:focus {
+        border-color: rgb(97, 147, 241);
+        background: rgb(97, 147, 241);
+        color: white; }
+    .flickr_pagination .page_info {
+      color: #aaaaaa;
+      padding-top: 0.8em; }
+    .flickr_pagination .previous_page, .flickr_pagination .next_page {
+      border-width: 2px; }
+    .flickr_pagination .previous_page {
+      margin-right: 1em; }
+    .flickr_pagination .next_page {
+      margin-left: 1em; }
+
+.form-control{
+  color: #000;
+}
