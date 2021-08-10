@@ -33,6 +33,9 @@ class StatusesController < ApplicationController
 
   def update
     @status = Status.find(params[:id])
+    if params[:Preview]
+      puts 'hello....'
+    end
     if @status.update(status_params)
       flash[:success] = 'status has been updated successfully..'
       redirect_to status_path
