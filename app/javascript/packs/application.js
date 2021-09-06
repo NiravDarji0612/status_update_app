@@ -16,3 +16,5 @@ import "cocoon"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+global.$ = jQuery;

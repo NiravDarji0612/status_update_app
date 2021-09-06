@@ -13,12 +13,15 @@
   </div>
 <% end %>
 
-<%= form_with(model: @status, local:true) do |f| %>
+<div class="show">
+  <%= form_with(model: @status, local:true) do |f| %>
   <div class="card-header fw-bold">
     <div class="col-4">
       <div class="form" style="color: black;">
         <%= f.label :date, class:"form-label text-center", placeholder:"Choose date" %>
           <%= f.date_field :date, class: "form-control", id: 'date' %>
+        <%= f.label :status_picture, class:"form-label text-center", placeholder:"Choose file" %>
+          <%= f.file_field :status_picture, class: "form-control" %>
       </div>
     </div>
   </div>
@@ -41,25 +44,11 @@
         </div>
       </div>
       <div class="col-4 mt-4" style="margin-left: -70px;">
-        <%= f.submit "Preview", class: "btn btn-primary", name:'Preview'%>
+        <% link_to @status, id: "preview", remote: true %>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          Preview
+          </button>
+        <% end %>
       </div>
     </div>
-   
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-                
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Understood</button>
-          </div>
-        </div>
-      </div>
-    </div>
-<% end %>
+</div>

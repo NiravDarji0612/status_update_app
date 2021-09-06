@@ -53,6 +53,6 @@ class StatusesController < ApplicationController
   private
 
   def status_params
-    params.require(:status).permit(:date, tasks_attributes: [:id, :task_name, :git_pr_link, :hour, :_destroy ])
+    params.require(:status).permit(:date, :status_picture, tasks_attributes: [:id, :task_name, :git_pr_link, :hour, :_destroy ])
   end
 end
