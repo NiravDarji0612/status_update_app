@@ -19,7 +19,7 @@ class StatusesController < ApplicationController
   def create
     @status = Status.new(status_params)
     if @status.save
-      StatusMailer.with(status: @status).new_status_email.deliver_later
+      SendNotificationsJob.set(wait: 30.minutes).perform_later(@status)
       flash[:success] = 'Email has been sent successfully..'
       redirect_to @status
     else
